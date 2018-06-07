@@ -1,9 +1,8 @@
 FROM alpine:3.4
-LABEL author Alfred Gutierrez <alf.g.jr@gmail.com>
 
-ENV NGINX_VERSION 1.13.9
-ENV NGINX_RTMP_VERSION 1.2.1
-ENV FFMPEG_VERSION 3.4.2
+ENV NGINX_VERSION 1.9.9
+ENV NGINX_RTMP_VERSION 1.1.7.10
+ENV FFMPEG_VERSION 4.0
 
 EXPOSE 1935
 EXPOSE 80
@@ -37,7 +36,7 @@ RUN cd /tmp && \
 
 # Get nginx-rtmp module.
 RUN cd /tmp && \
-  wget https://github.com/arut/nginx-rtmp-module/archive/v${NGINX_RTMP_VERSION}.tar.gz && \
+  wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/v${NGINX_RTMP_VERSION}.tar.gz && \
   tar zxf v${NGINX_RTMP_VERSION}.tar.gz && rm v${NGINX_RTMP_VERSION}.tar.gz
 
 # Compile nginx with nginx-rtmp module.
